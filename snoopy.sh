@@ -60,6 +60,7 @@ do
 	     TARGET=$OPTARG
 	     ;;
          m)
+	     TITLE="Known Malware Sites Discovered:"
 	     echo $TARGET >> output/$TARGET.malware.output
              date >> output/$TARGET.malware.output	
 	     dig @$TARGET -f malware.list +norecurse >> output/$TARGET.malware.output
@@ -113,7 +114,4 @@ echo -n "                This test was conducted on: "
 date
 echo ""
 echo Results:
-#cat output/$TARGET*.output | sed 's/\\n/\\n[+] $TITLE - /g' | grep -A 2 "ANSWER SECTION" | grep -v "ANSWER SECTION" 
-cat output/$TARGET.*.output | sed '/^$/d'| sed 's/^/[+] Success - /g' | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u
-#for i in $(cat ztmp);do echo -n "[+] Known Anti-Virus Update Site - ";echo $i;done
- 
+cat output/$TARGET.*.output | sed '/^$/d'| sed "s/^/[+] $TITLE Success - /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
