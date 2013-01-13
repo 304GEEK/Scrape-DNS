@@ -52,9 +52,10 @@ do
              exit 1
              ;;
 	 c)
-             echo $TARGET >> output/$TARGET.controversial.output
+             TITLE="Controversial Sites Discovered:"
+	     echo $TARGET >> output/$TARGET.controversial.output
              date >> output/$TARGET.controversial.output
-             dig @$TARGET -f updates.list +norecurse >> output/$TARGET.controversial.output
+             dig @$TARGET -f controversial.list +norecurse >> output/$TARGET.controversial.output
              ;;
  	 t)
 	     TARGET=$OPTARG
@@ -66,21 +67,25 @@ do
 	     dig @$TARGET -f malware.list +norecurse >> output/$TARGET.malware.output
              ;;
          p)
+	     TITLE="Known Pornography Sites Discovered:"
 	     echo $TARGET >> output/$TARGET.porn.output
              date >> output/$TARGET.porn.output
 	     dig @$TARGET -f porn.list +norecurse >> output/$TARGET.porn.output
              ;;
 	 u)
+	     TITLE="Known AV Update Sites Discovered:"
 	     echo $TARGET >> output/$TARGET.updates.output
              date >> output/$TARGET.updates.output
 	     dig @$TARGET -f updates.list +norecurse >> output/$TARGET.updates.output
              ;;
 	 a)  
+	     TITLE="Target Sites Discovered:"
 	     echo $TARGET >> output/$TARGET.all-sites.output
              date >> output/$TARGET.all-sites.output
 	     dig @$TARGET -f all.list +norecurse >> output/$TARGET.all-sites.output 
 	     ;;
 	 i)  
+	     TITLE="Target Sites Discovered:"
 	     echo $TARGET >> output/$TARGET.import.output
 	     date >> output/$TARGET.$import.output
 	     dig @$TARGET -f custom.list +norecurse >> output/$TARGET.import.output
