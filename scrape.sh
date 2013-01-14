@@ -1,5 +1,6 @@
 #!/bin/bash
 usage(){
+cat << EOF
 usage: $0 options
 
 Check DNS servers for interesting cached entries
@@ -21,7 +22,7 @@ OPTIONS:
    -u      Common AV Mode
    -p      Free Porn Mode
    -t 	   Target DNS Server
-
+EOF
 }
 
 INFILE=
