@@ -1,20 +1,4 @@
 #!/bin/bash
-#########################################################################################
-#											#
-#    ,-~~-.___.            								#
-#   / |  '     \            								#
-#  (  )        0                     Snoopy-DNS v1					#	
-#   \_/-, ,----'         __           							#
-#      ====             / /              						#
-#     /  \-'~;         / /                						#
-#    /  __/~|  _______/ /    								#
-#  =(  _____| (_________|								#
-#                              								#
-#                      A proof of concept DNS reconnaissance tool			#
-#            Written by Rob Dixon - Senior Security Consultant - AccuvantLABS		#
-#											#
-#########################################################################################
-{
 cat << EOF
 usage: $0 options
 
@@ -22,21 +6,20 @@ Check DNS servers for interesting cached entries
 
 Examples: 
 
-./snoopy.sh -t 8.8.8.8 -a
-./snoopy.sh -t 8.8.8.8 -p
-./snoopy.sh -t 8.8.8.8 -u
-./snoopy.sh -t 8.8.8.8 -m
-./snoopy.sh -t 8.8.8.8 -c
-./snoopy.sh -t 8.8.8.8 -i custom_sites.list
+./scrape.sh -t 8.8.8.8 -a
+./scrape.sh -t 8.8.8.8 -p
+./scrape.sh -t 8.8.8.8 -u
+./scrape.sh -t 8.8.8.8 -m
+./scrape.sh -t 8.8.8.8 -c
+./scrape.sh -t 8.8.8.8 -i custom_sites.list
 
 OPTIONS:
    -h      Show this message
    -a      All Mode (includes, yup, ALL lists)
-   -c	   Top Controversial Mode
    -i      Import Mode (-i sites.list)
-   -m      Top Malware Mode
+   -m      Malware Mode (https://secure.mayhemiclabs.com/malhosts/malhosts.txt)
    -u      Common AV Mode
-   -p      Top Free Porn Mode
+   -p      Free Porn Mode
    -t 	   Target DNS Server
 
 EOF
@@ -44,18 +27,12 @@ EOF
 
 INFILE=
 TARGET=
-while getopts “ihct:mpua” OPTION
+while getopts “iht:mpua” OPTION
 do
      case $OPTION in
          h)
              usage
              exit 1
-             ;;
-	 c)
-             TITLE="Controversial Sites Discovered:"
-	     echo $TARGET >> output/$TARGET.controversial.output
-             date >> output/$TARGET.controversial.output
-             dig @$TARGET -f controversial.list +norecurse >> output/$TARGET.controversial.output
              ;;
  	 t)
 	     TARGET=$OPTARG
@@ -96,23 +73,19 @@ do
              ;;
      esac
 done
-echo ""
-echo "												"
-echo "    ,-~~-.___.										"
-echo "   / |  '     \										"
-echo "  (  )        0                     Snoopy-DNS v1					"
-echo "   \_/-, ,----'         __           							"
-echo "      ====             / /              							"
-echo "     /  \-'~;         / /                						"
-echo "    /  __/~|  _______/ /    								"
-echo "  =(  _____| (_________|									"
-echo "                              								"
+echo "     	     	     _        _        _        _        _        _    
+echo "  	   	   _( )__   _( )__   _( )__   _( )__   _( )__   _( )__ "
+echo " 		 	 _|     _|_|     _|_|     _|_|     _|_|     _|_|     _|"
+echo "			(_ S _ (_(_ C _ (_(_ R _ (_(_ A _ (_(_ P _ (_(_ E _ (_ "
+echo "  		  |_( )__| |_( )__| |_( )__| |_( )__| |_( )__| |_( )__|"
+echo " "
+echo "                              	Scrape-DNS v1							"
 echo "                  A proof of concept DNS reconnaissance tool using Dig "
 echo "		      to report on suspicious or revealing cached DNS entries.				"
 echo "            Written by Rob Dixon - Senior Security Consultant - AccuvantLABS		"
 echo "												"
 echo "					              						"
-echo " 		            Snooped results for DNS server : $TARGET			"
+echo " 		            Scraped results for DNS server : $TARGET			"
 echo "												"
 echo ""
 echo -n "                This test was conducted on: "
