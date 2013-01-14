@@ -1,9 +1,9 @@
-Snoopy-DNS
+Scrape-DNS
 ==========
 
 Searches for interesting cached DNS entries.
 
-usage: ./snoopy.sh options
+usage: ./scrape.sh options
 
 Check DNS servers for interesting cached entries
 
@@ -30,7 +30,7 @@ OPTIONS:
 												
     ,-~~-.___.										
    / |  '     \										
-  (  )        0                     Snoopy-DNS v1					
+  (  )        0                     Scrape-DNS v1					
    \_/-, ,----'         __           							
       ====             / /              							
      /  \-'~;         / /                						
