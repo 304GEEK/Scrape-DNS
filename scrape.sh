@@ -1,4 +1,18 @@
 #!/bin/bash
+#################################################################
+#								#
+# Scrape v1							#
+#								#
+# By Rob Dixon							#					
+# Senior Security Consultant					#
+# AccuvantLABS							#
+# @304geek							#
+#								#
+# Thanks @Netinfinity for helping with the option handling!	#
+#								#
+# Let's go and see what people are doing..			#
+#								#
+#################################################################
 function usage(){
 cat << EOF
 
@@ -27,19 +41,6 @@ EOF
 }
 
 
-#################################################################
-#								#
-# Scrape v1							#
-#								#
-# By Rob Dixon							#					
-# Senior Security Consultant					#
-# AccuvantLABS							#
-#								#
-# Thanks Netinfinity for helping with the option handling!	#
-#								#
-# Let's go and see what people are doing..			#
-#								#
-#################################################################
 
 INFILE=
 TARGET=
