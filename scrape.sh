@@ -8,7 +8,7 @@
 # AccuvantLABS							#
 # @304geek							#
 #								#
-# Thanks @Netinfinity for helping with the option handling!	#
+# Thanks @@NodeZero_Linux for helping with the option handling!	#
 #								#
 # Let's go and see what people are doing..			#
 #								#
