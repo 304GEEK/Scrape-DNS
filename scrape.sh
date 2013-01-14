@@ -1,4 +1,5 @@
 #!/bin/bash
+{
 cat << EOF
 usage: $0 options
 
