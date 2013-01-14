@@ -32,7 +32,7 @@ Examples:
 OPTIONS:
    -h      Show this message
    -a      All Mode (includes, yup, ALL lists)
-   -i      Import Mode (-i sites.list)
+   -i      Import Mode (edit custom.list)
    -m      Malware Mode (https://secure.mayhemiclabs.com/malhosts/malhosts.txt)
    -u      Common AV Mode
    -p      Free Porn Mode
