@@ -90,4 +90,4 @@ echo $TARGET >> output/$TARGET.output
 date >> output/$TARGET.output
 dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
 echo Results:
-cat output/$TARGET.*.output | sed '/^$/d'| sed "s/^/[+] $TITLE Success - /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
+cat output/$TARGET.output | sed '/^$/d'| sed "s/^/[+] $TITLE Success - /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
