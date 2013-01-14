@@ -1,6 +1,7 @@
 #!/bin/bash
-usage(){
+function usage(){
 cat << EOF
+
 usage: $0 options
 
 Check DNS servers for interesting cached entries
@@ -21,9 +22,24 @@ OPTIONS:
    -m      Malware Mode (https://secure.mayhemiclabs.com/malhosts/malhosts.txt)
    -u      Common AV Mode
    -p      Free Porn Mode
-   -t 	   Target DNS Server
+   -t      Target DNS Server
 EOF
 }
+
+
+#################################################################
+#								#
+# Scrape v1							#
+#								#
+# By Rob Dixon							#					
+# Senior Security Consultant					#
+# AccuvantLABS							#
+#								#
+# Thanks Netinfinity for helping with the option handling!	#
+#								#
+# Let's go and see what people are doing..			#
+#								#
+#################################################################
 
 INFILE=
 TARGET=
@@ -61,28 +77,36 @@ do
 	     MODE=custom
 	     TITLE="Target Sites Discovered:"
 	     ;;
-         ?)
-             usage
-             exit
-             ;;
+   \?)
+       usage
+       exit
+       ;;
+   * ) 
+       usage
+       exit 1
+       ;;
      esac
 done
 
-echo " "
-echo "					Scrape-DNS v1							"
-echo " "
-echo "                  A proof of concept DNS reconnaissance tool using Dig "
-echo "		    to report on suspicious or revealing cached DNS entries.				"
-echo "            Written by Rob Dixon - Senior Security Consultant - AccuvantLABS		"
-echo "												"
-echo "					              						"
-echo "Scraped results for : $TARGET			"	
-echo -n "This test was conducted on: "
-date
-echo ""
-rm output/$TARGET.output
-echo $TARGET >> output/$TARGET.output
-date >> output/$TARGET.output
-dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
-echo Results:
-cat output/$TARGET.output | sed '/^$/d'| sed "s/^/[+] $TITLE -/g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
+if [[ $1 == -* ]]
+ then
+  echo "Scraped results for : $TARGET     " 
+  echo -n "This test was conducted on: "
+  date
+  echo ""
+  rm output/$TARGET.output
+  echo $TARGET >> output/$TARGET.output
+  date >> output/$TARGET.output
+  dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
+  echo Results:
+  cat output/$TARGET.output | sed '/^$/d'| sed "s/^/[+] $TITLE : /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
+  exit 2
+fi
+
+if [[ $1 -eq 0 ]] || [[ $2 -eq 0 ]]
+  then
+    usage
+fi
+
+
+
