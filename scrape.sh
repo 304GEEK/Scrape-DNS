@@ -55,7 +55,7 @@ do
 	     ;;
          m)
 	     MODE=malware
-	     TITLE="Known Malware Sites Discovered:"
+	     TITLE="Potential Malware Sites Discovered:"
 	     echo "Updating malware list from https://secure.mayhemiclabs.com/malhosts/malhosts.txt"
 	     echo""
 	     rm malware.list
@@ -67,7 +67,7 @@ do
              ;;
 	 u)
 	     MODE=updates
-	     TITLE="Known AV Update Sites Discovered:"
+	     TITLE="Common AV Update Sites Discovered:"
              ;;
 	 a)  
 	     MODE=all
