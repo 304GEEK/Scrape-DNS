@@ -1,7 +1,17 @@
-Scrape-DNS
-==========
-
-Searches for interesting cached DNS entries.
+#################################################################
+#                                                               #
+# Scrape v1                                                     #
+#                                                               #
+# By Rob Dixon                                                  #                                       
+# Senior Security Consultant                                    #
+# AccuvantLABS                                                  #
+# @304geek                                                      #
+#                                                               #
+# Thanks @Netinfinity for helping with the option handling!     #
+#                                                               #
+# Let's go and see what people are doing..                      #
+#                                                               #
+#################################################################
 
 usage: ./scrape.sh options
 
@@ -19,24 +29,9 @@ Examples:
 OPTIONS:
    -h      Show this message
    -a      All Mode (includes, yup, ALL lists)
-   -c	   Top Controversial Mode
-   -i      Import Mode (-i sites.list)
-   -m      Top Malware Mode
+   -i      Import Mode (edit custom.list)
+   -m      Malware Mode (https://secure.mayhemiclabs.com/malhosts/malhosts.txt)
    -u      Common AV Mode
-   -p      Top Free Porn Mode
-   -t 	   Target DNS Server
+   -p      Free Porn Mode
+   -t      Target DNS Server
 
-
-												
-    ,-~~-.___.										
-   / |  '     \										
-  (  )        0                     Scrape-DNS v1					
-   \_/-, ,----'         __           							
-      ====             / /              							
-     /  \-'~;         / /                						
-    /  __/~|  _______/ /    								
-  =(  _____| (_________|									
-                              								
-                  A proof of concept DNS reconnaissance tool using Dig 
-		      to report on suspicious or revealing cached DNS entries.				
-            Written by Rob Dixon - Senior Security Consultant - AccuvantLABS
