@@ -1,6 +1,5 @@
 #!/bin/bash
-{
-cat << EOF
+usage(){
 usage: $0 options
 
 Check DNS servers for interesting cached entries
@@ -23,7 +22,6 @@ OPTIONS:
    -p      Free Porn Mode
    -t 	   Target DNS Server
 
-EOF
 }
 
 INFILE=
@@ -86,4 +84,4 @@ echo $TARGET >> output/$TARGET.output
 date >> output/$TARGET.output
 dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
 echo Results:
-cat output/$TARGET.output | sed '/^$/d'| sed "s/^/[+] $TITLE Success - /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
+cat output/$TARGET.output | sed '/^$/d'| sed "s/^/[+] $TITLE -/g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
