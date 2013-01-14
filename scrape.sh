@@ -83,6 +83,7 @@ echo ""
 echo -n "                This test was conducted on: "
 date
 echo ""
+rm $TARGET.output
 echo $TARGET >> output/$TARGET.output
 date >> output/$TARGET.output
 dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
