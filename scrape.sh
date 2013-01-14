@@ -70,17 +70,15 @@ do
 done
 
 echo " "
-echo "                              	Scrape-DNS v1							"
-echo" "
+echo "					Scrape-DNS v1							"
+echo " "
 echo "                  A proof of concept DNS reconnaissance tool using Dig "
 echo "		      to report on suspicious or revealing cached DNS entries.				"
 echo "            Written by Rob Dixon - Senior Security Consultant - AccuvantLABS		"
 echo "												"
 echo "					              						"
-echo " 		            Scraped results for DNS server : $TARGET			"
-echo "												"
-echo ""
-echo -n "                This test was conducted on: "
+echo "Scraped results for : $TARGET			"	
+echo -n "This test was conducted on: "
 date
 echo ""
 rm output/$TARGET.output
