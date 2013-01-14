@@ -1,19 +1,7 @@
-#################################################################
-#                                                               #
-# Scrape v1                                                     #
-#                                                               #
-# By Rob Dixon                                                  #                                       
-# Senior Security Consultant                                    #
-# AccuvantLABS                                                  #
-# @304geek                                                      #
-#                                                               #
-# Thanks @Netinfinity for helping with the option handling!     #
-#                                                               #
-# Let's go and see what people are doing..                      #
-#                                                               #
-#################################################################
+Scrape v1
+by Rob Dixon @304geek
+Senior Security Consultant - AccuvantLABS
 
-usage: ./scrape.sh options
 
 Check DNS servers for interesting cached entries
 
