@@ -9,12 +9,12 @@ Check DNS servers for interesting cached entries
 
 Examples: 
 
-./snoopy.sh -t 8.8.8.8 -a
-./snoopy.sh -t 8.8.8.8 -p
-./snoopy.sh -t 8.8.8.8 -u
-./snoopy.sh -t 8.8.8.8 -m
-./snoopy.sh -t 8.8.8.8 -c
-./snoopy.sh -t 8.8.8.8 -i custom_sites.list
+./scrape.sh -t 8.8.8.8 -a
+./scrape.sh -t 8.8.8.8 -p
+./scrape.sh -t 8.8.8.8 -u
+./scrape.sh -t 8.8.8.8 -m
+./scrape.sh -t 8.8.8.8 -c
+./scrape.sh -t 8.8.8.8 -i custom_sites.list
 
 OPTIONS:
    -h      Show this message
