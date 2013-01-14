@@ -39,34 +39,28 @@ do
 	     TARGET=$OPTARG
 	     ;;
          m)
+	     MODE=malware
 	     TITLE="Known Malware Sites Discovered:"
-	     echo $TARGET >> output/$TARGET.malware.output
-             date >> output/$TARGET.malware.output	
-	     dig @$TARGET -f malware.list +norecurse >> output/$TARGET.malware.output
+	     echo "Updating malware list from https://secure.mayhemiclabs.com/malhosts/malhosts.txt"
+	     echo""
+	     rm malware.list
+	     curl -k https://secure.mayhemiclabs.com/malhosts/malhosts.txt | cut -f1 | grep -v "#" | sed '/^$/d' |sort -u >> malware.list
              ;;
          p)
+	     MODE=porn
 	     TITLE="Known Pornography Sites Discovered:"
-	     echo $TARGET >> output/$TARGET.porn.output
-             date >> output/$TARGET.porn.output
-	     dig @$TARGET -f porn.list +norecurse >> output/$TARGET.porn.output
              ;;
 	 u)
+	     MODE=updates
 	     TITLE="Known AV Update Sites Discovered:"
-	     echo $TARGET >> output/$TARGET.updates.output
-             date >> output/$TARGET.updates.output
-	     dig @$TARGET -f updates.list +norecurse >> output/$TARGET.updates.output
              ;;
 	 a)  
+	     MODE=all
 	     TITLE="Target Sites Discovered:"
-	     echo $TARGET >> output/$TARGET.all-sites.output
-             date >> output/$TARGET.all-sites.output
-	     dig @$TARGET -f all.list +norecurse >> output/$TARGET.all-sites.output 
 	     ;;
 	 i)  
+	     MODE=custom
 	     TITLE="Target Sites Discovered:"
-	     echo $TARGET >> output/$TARGET.import.output
-	     date >> output/$TARGET.$import.output
-	     dig @$TARGET -f custom.list +norecurse >> output/$TARGET.import.output
 	     ;;
          ?)
              usage
@@ -92,5 +86,8 @@ echo ""
 echo -n "                This test was conducted on: "
 date
 echo ""
+echo $TARGET >> output/$TARGET.output
+date >> output/$TARGET.output
+dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
 echo Results:
 cat output/$TARGET.*.output | sed '/^$/d'| sed "s/^/[+] $TITLE Success - /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
