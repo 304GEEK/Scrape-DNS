@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 #################################################################
 #								#
 # Scrape v1							#
@@ -25,17 +26,15 @@ Examples:
 ./scrape.sh -t 8.8.8.8 -a
 ./scrape.sh -t 8.8.8.8 -p
 ./scrape.sh -t 8.8.8.8 -u
-./scrape.sh -t 8.8.8.8 -m
 ./scrape.sh -t 8.8.8.8 -c
 ./scrape.sh -t 8.8.8.8 -i custom_sites.list
 
 OPTIONS:
    -h      Show this message
-   -a      All Mode (includes, yup, ALL lists)
-   -i      Import Mode (edit custom.list)
-   -m      Malware Mode (https://secure.mayhemiclabs.com/malhosts/malhosts.txt)
-   -u      Common AV Mode
-   -p      Free Porn Mode
+   -a      All
+   -i      Import Mode
+   -u      Common AV Update
+   -p      Obscene
    -t      Target DNS Server
 EOF
 }
@@ -44,7 +43,7 @@ EOF
 
 INFILE=
 TARGET=
-while getopts “iht:mpua” OPTION
+while getopts “iht:moua” OPTION
 do
      case $OPTION in
          h)
@@ -54,17 +53,10 @@ do
  	 t)
 	     TARGET=$OPTARG
 	     ;;
-         m)
-	     MODE=malware
-	     TITLE="Potential Malware Sites Discovered:"
-	     echo "Updating malware list from https://secure.mayhemiclabs.com/malhosts/malhosts.txt"
-	     echo""
-	     rm malware.list
-	     curl -k https://secure.mayhemiclabs.com/malhosts/malhosts.txt | cut -f1 | grep -v "#" | sed '/^$/d' |sort -u >> malware.list
-             ;;
-         p)
+      
+         o)
 	     MODE=porn
-	     TITLE="Known Pornography Sites Discovered:"
+	     TITLE="Known Obscene Sites Discovered:"
              ;;
 	 u)
 	     MODE=updates
@@ -91,11 +83,12 @@ done
 
 if [[ $1 == -* ]]
  then
+  rm output/$TARGET.output
+  clear
   echo "Scraped results for : $TARGET     " 
   echo -n "This test was conducted on: "
   date
   echo ""
-  rm output/$TARGET.output
   echo $TARGET >> output/$TARGET.output
   date >> output/$TARGET.output
   dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
