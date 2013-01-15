@@ -88,12 +88,7 @@ if [[ $1 == -* ]]
   echo "Scraped results for : $TARGET     " 
   echo -n "This test was conducted on: "
   date
-  echo ""
-  echo $TARGET >> output/$TARGET.output
-  date >> output/$TARGET.output
-  dig @$TARGET -f $MODE.list +norecurse >> output/$TARGET.output
-  echo Results:
-  cat output/$TARGET.output | sed '/^$/d'| sed "s/^/[+] $TITLE : /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
+  dig @$TARGET -f $MODE.list +norecurse | sed '/^$/d'| sed "s/^/[+] $TITLE : /g" | grep -A 1 "ANSWER SECTION" | grep -v "ANSWER SECTION" | sort -u 
   exit 2
 fi
 
