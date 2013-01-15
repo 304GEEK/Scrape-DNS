@@ -83,8 +83,6 @@ done
 
 if [[ $1 == -* ]]
  then
-  rm output/$TARGET.output
-  clear
   echo "Scraped results for : $TARGET     " 
   echo -n "This test was conducted on: "
   date
