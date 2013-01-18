@@ -15,12 +15,17 @@ Examples:
 ./scrape.sh -t 8.8.8.8 -i custom_sites.list
 
 OPTIONS:
+
  -h      Show this message
- -a      All Mode (includes, yup, ALL lists)
- -i      Import Mode (edit custom.list)
- -m      Malware Mode (https://secure.mayhemiclabs.com/malhosts/malhosts.txt)
+ 
+ -a      All Mode 
+ 
+ -i      Import Mode (custom.list)
+ 
  -u      Common AV Mode
- -p      Free Porn Mode
+ 
+ -o      Obscene Mode
+ 
  -t      Target DNS Server
 
 =====================================================================
