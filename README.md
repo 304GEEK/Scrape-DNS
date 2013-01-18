@@ -30,10 +30,15 @@ Senior Security Consultant - AccuvantLABS
 Timing-Scrape.sh <server-ip> <mode>
 
 Example:
+
 Timing-Scrape.sh 8.8.8.8 custom
 
 Modes:
+
 custom
+
 porn
+
 updates
+
 all
