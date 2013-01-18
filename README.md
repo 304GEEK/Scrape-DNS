@@ -1,4 +1,4 @@
-Scrape v1
+Scrape v1\n
 by Rob Dixon @304geek
 Senior Security Consultant - AccuvantLABS
 
