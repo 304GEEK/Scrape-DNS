@@ -12,7 +12,7 @@ Examples:
 
 ./scrape.sh -t 8.8.8.8 -u
 
-./scrape.sh -t 8.8.8.8 -i custom_sites.list
+./scrape.sh -t 8.8.8.8 -i custom.list
 
 OPTIONS:
 
