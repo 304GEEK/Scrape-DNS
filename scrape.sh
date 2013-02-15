@@ -34,7 +34,7 @@ OPTIONS:
    -a      All
    -i      Import Mode
    -u      Common AV Update
-   -p      Obscene
+   -o      Obscene
    -t      Target DNS Server
 EOF
 }
