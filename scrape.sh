@@ -26,7 +26,6 @@ Examples:
 ./scrape.sh -t 8.8.8.8 -a
 ./scrape.sh -t 8.8.8.8 -o
 ./scrape.sh -t 8.8.8.8 -u
-./scrape.sh -t 8.8.8.8 -c
 ./scrape.sh -t 8.8.8.8 -i custom_sites.list
 
 OPTIONS:
