@@ -1,20 +1,27 @@
 #!/bin/bash
 clear
-#################################################################
-#								#
-# Scrape v1							#
-#								#
-# By Rob Dixon							#					
-# Senior Security Consultant					#
-# AccuvantLABS							#
-# @304geek							#
-#								#
-# Thanks @@NodeZero_Linux for helping with the option handling!	#
-#								#
-# Let's go and see what people are doing..			#
-#								#
-#################################################################
-function usage(){
+#########################################################################
+#									#
+# Scrape v1								#
+#									#
+# By Rob Dixon								#						
+# Senior Security Consultant						#
+# AccuvantLABS								#
+# @304geek								#
+#									#
+# Thanks @@NodeZero_Linux for helping with the option handling!		#
+#									#
+# Let's go and see what people are doing..				#
+#									#
+#	Copyright (c) 2013 Rob Dixon & Vito Margetic			#
+#									#
+# This program is free software; you can redistribute it and/or		#
+# modify it under the terms of the GNU General Public License as	#
+# published by the Free Software Foundation; either version 2 of the	#
+# License, or (at your option) any later version.  See the file		#
+# COPYING included with this distribution for more information.		#							#
+#########################################################################	
+function usage()
 cat << EOF
 
 usage: $0 options
