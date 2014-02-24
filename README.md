@@ -1,6 +1,10 @@
 Scrape v1
 by Rob Dixon @304geek
 Senior Security Consultant - AccuvantLABS
+&
+Vito Margetic
+
+Licensed under GPL v2 (see COPYING)
 
 Check DNS servers for interesting cached entries
 
