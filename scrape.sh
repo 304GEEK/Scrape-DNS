@@ -21,7 +21,7 @@ clear
 # License, or (at your option) any later version.  See the file		#
 # COPYING included with this distribution for more information.		#							#
 #########################################################################	
-function usage()
+function usage(){
 cat << EOF
 
 usage: $0 options
