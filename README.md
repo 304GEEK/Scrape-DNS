@@ -1,6 +1,5 @@
 Scrape v1
 by Rob Dixon @304geek
-Senior Security Consultant - AccuvantLABS
 &
 Vito Margetic
 
@@ -37,7 +36,7 @@ OPTIONS:
 Timing-Scrape.sh
 
 by Rob Dixon @304geek
-Senior Security Consultant - AccuvantLABS
+AccuvantLABS
 
 Timing-Scrape.sh <server-ip> <mode>
 
